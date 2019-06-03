@@ -16,44 +16,62 @@
         </div>
 
         <div class="row no-m-t no-m-b">
-            <div class="col s12 m12 l12">
+
+
+
+            {{-- table users --}}
+            <div class="col s12 m6 l6">
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title">Barbacoas registradas</span>
+                    <span class="card-title">Usuarios registrados <span class="new badge blue" data-badge-caption="" style="border-radius: 50px;">{{count($users)}}</span></span>
                         <table class="striped">
                             <thead>
                                 <tr>
-                                    <th data-field="id">Name</th>
-                                    <th data-field="name">Item Name</th>
-                                    <th data-field="price">Item Price</th>
+                                    <th style="text-align:center;">Nombre</th>
+                                    <th style="text-align:center;">Email</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Alvin</td>
-                                    <td>Eclair</td>
-                                    <td>$0.87</td>
-                                </tr>
-                                <tr>
-                                    <td>Alan</td>
-                                    <td>Jellybean</td>
-                                    <td>$3.76</td>
-                                </tr>
-                                <tr>
-                                    <td>Jonathan</td>
-                                    <td>Lollipop</td>
-                                    <td>$7.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Shannon</td>
-                                    <td>KitKat</td>
-                                    <td>$9.99</td>
-                                </tr>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td style="text-align:center;">{{$user->name}}</td>
+                                        <td style="text-align:center;">{{$user->email}}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            {{-- table users --}}
+
+
+            {{-- table users --}}
+            <div class="col s12 m6 l6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Barbacoas registradas <span class="new badge red" data-badge-caption="" style="border-radius: 50px;">{{count($companies)}}</span></span>
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center;">Modelo</th>
+                                    <th style="text-align:center;">Descripcion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($companies as $company)
+                                <tr>
+                                    <td style="text-align:center;">{{$company->model}}</td>
+                                    <td style="text-align:center;">{{$company->description}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {{-- table users --}}
+
         </div>
     </div>
 </main>

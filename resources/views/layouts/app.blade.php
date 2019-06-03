@@ -11,10 +11,12 @@
 
     <link href="{{ asset('assets/plugins/materialize/css/materialize.min.css') }}" rel="stylesheet">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="{{ asset('assets/plugins/material-preloader/css/materialPreloader.min.css') }}" rel="stylesheet">
 
     <!-- Theme Styles -->
     <link href="{{ asset('assets/css/alpha.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 </head>
 
@@ -93,7 +95,7 @@
             <div class="side-nav-wrapper">
                 <div class="sidebar-profile">
                     <div class="sidebar-profile-image">
-                        <img src="assets/images/profile-image.png" class="circle" alt="">
+                        <img src="{{asset('assets/images/profile-image.png')}}" class="circle" alt="">
                     </div>
                     <div class="sidebar-profile-info">
                         <a href="javascript:void(0);" class="account-settings-link">
@@ -114,9 +116,9 @@
                 </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('home') }}"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('home') }}"><i class="material-icons">apps</i>apps</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('companies.index') }}"><i class="material-icons">apps</i>Barbacoas</a></li>
                     <li class="no-padding">
-                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">apps</i>Usuarios<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+                        <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">group</i>Usuarios<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="{{ route('register') }}">Crear Usuario</a></li>
@@ -149,5 +151,7 @@
     <script src="{{ asset('assets/plugins/material-preloader/js/materialPreloader.min.js') }}" defer></script>
     <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.js') }}" defer></script>
     <script src="{{ asset('assets/js/alpha.min.js') }}" defer></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('assets/js/custom.js') }}" defer></script>
 </body>
 </html>
