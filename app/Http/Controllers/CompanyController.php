@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\User;
+use App\Booking;
 use Illuminate\Http\Request;
 use Image;
+use Carbon\Carbon;
+use DB;
+
 
 class CompanyController extends Controller
 {
@@ -170,4 +174,50 @@ class CompanyController extends Controller
         $companies = Company::pluck('model', 'id');
         return view('companies.booking', ['users'=>$users, 'companies'=>$companies]);
     }
+
+
+    public function bookingStore(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'company_id' => 'required',
+            'date' => 'required'
+        ]);
+
+        //saparar fechas
+        $dates = explode("~", $request->date);
+
+        // buscar en BD si existe ya un registro
+        $existsBooking = DB::table('bookings')
+        ->where([
+            ['user_id', '=', $request->user_id],
+            ['company_id', '=', $request->company_id],
+            ['date_start', '>=', Carbon::parse($dates[0])],
+            ['date_end', '<=', Carbon::parse($dates[1])]
+        ])
+        ->whereBetween('date_start', [Carbon::parse($dates[0]), Carbon::parse($dates[1])])
+        ->whereBetween('date_end', [Carbon::parse($dates[0]), Carbon::parse($dates[1])])
+        ->pluck('id');
+
+        if(count($existsBooking) === 0) {
+            $companies = new Booking;
+            $companies->user_id = $request->user_id;
+            $companies->company_id = $request->company_id;
+            $companies->date_start = Carbon::parse($dates[0]);
+            $companies->date_end = Carbon::parse($dates[1]);
+            $companies->save();
+
+            return redirect()->route('home')
+                            ->with('success','Barbacoa Alquilada exitosamente.');
+        }
+        else
+            return redirect()->back()->withInput()->with('error', "No puede guardar porque ya el local fue alquilado en la fecha escogida.");
+
+
+
+
+
+
+    }
+
 }

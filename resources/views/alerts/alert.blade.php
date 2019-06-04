@@ -6,6 +6,14 @@
     </div>
 @endif
 
+@if ($message = Session::get('error'))
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close-alert">×</button>
+        <i class="material-icons">error</i>
+        {{$message}}
+    </div>
+@endif
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Ooops!</strong> Hubo algunos problemas.<br><br>

@@ -55,4 +55,9 @@ $( document ).ready(function() {
     });
     $('.dataTables_length select').addClass('browser-default');
 
+    // fix css daterangepicker
+    $(()=>{
+        $('.footer').remove();
+    })
+
 });

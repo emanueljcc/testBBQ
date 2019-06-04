@@ -17,25 +17,29 @@
 
         <div class="row no-m-t no-m-b">
 
-
-
-            {{-- table users --}}
-            <div class="col s12 m6 l6">
+            {{-- table bookings --}}
+            <div class="col s12 m6 l12">
                 <div class="card">
+
+                    @include('alerts/alert')
+                    <br>
+
                     <div class="card-content">
-                    <span class="card-title">Usuarios registrados <span class="new badge blue" data-badge-caption="" style="border-radius: 50px;">{{count($users)}}</span></span>
-                        <table class="striped">
+                    <span class="card-title">Alquileres <span class="new badge blue" data-badge-caption="" style="border-radius: 50px;"><b>{{count($bookings)}}</b></span></span>
+                        <table class="highlight">
                             <thead>
                                 <tr>
-                                    <th style="text-align:center;">Nombre</th>
-                                    <th style="text-align:center;">Email</th>
+                                    <th style="text-align:center;">Usuario</th>
+                                    <th style="text-align:center;">Barbacoa</th>
+                                    <th style="text-align:center;width:50%;">Fecha de alquiler</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $user)
+                                @foreach($bookings as $booking)
                                     <tr>
-                                        <td style="text-align:center;">{{$user->name}}</td>
-                                        <td style="text-align:center;">{{$user->email}}</td>
+                                        <td style="text-align:center;">{{$booking->name}}</td>
+                                        <td style="text-align:center;">{{$booking->model}}</td>
+                                        <td style="text-align:center;">{{date("d/m/Y H:mm", strtotime($booking->date_start))." - ".date("d/m/Y H:mm", strtotime($booking->date_end))}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -43,34 +47,7 @@
                     </div>
                 </div>
             </div>
-            {{-- table users --}}
-
-
-            {{-- table users --}}
-            <div class="col s12 m6 l6">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Barbacoas registradas <span class="new badge red" data-badge-caption="" style="border-radius: 50px;">{{count($companies)}}</span></span>
-                        <table class="striped">
-                            <thead>
-                                <tr>
-                                    <th style="text-align:center;">Modelo</th>
-                                    <th style="text-align:center;">Descripcion</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($companies as $company)
-                                <tr>
-                                    <td style="text-align:center;">{{$company->model}}</td>
-                                    <td style="text-align:center;">{{$company->description}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            {{-- table users --}}
+            {{-- table bookings --}}
 
         </div>
     </div>

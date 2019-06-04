@@ -17,7 +17,10 @@
     <!-- Theme Styles -->
     <link href="{{ asset('assets/css/alpha.min.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/daterangepicker.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -76,12 +79,12 @@
                         </a>
                     </section>
                     <div class="header-title col s3">
-                        <span class="chapter-title">Barbacoa</span>
+                        <span class="chapter-title">BBQ</span>
                     </div>
 
 
                     <div class="col s6 center">
-                       logo img
+                        <img src="{{asset('img/barbacoa.png')}}" alt="avatar" style="width:9.5em;margin-top: 1px;">
                     </div>
 
 
@@ -95,7 +98,7 @@
             <div class="side-nav-wrapper">
                 <div class="sidebar-profile">
                     <div class="sidebar-profile-image">
-                        <img src="{{asset('assets/images/profile-image.png')}}" class="circle" alt="">
+                        <img src="{{asset('assets/images/profile-image.png')}}" class="circle" alt="avatar">
                     </div>
                     <div class="sidebar-profile-info">
                         <a href="javascript:void(0);" class="account-settings-link">
@@ -116,8 +119,8 @@
                 </div>
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('home') }}"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('companies.index') }}"><i class="material-icons">apps</i>Barbacoas</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('booking') }}"><i class="material-icons">query_builder</i>Alquilar Barbacoa</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('companies.index') }}"><i class="material-icons">apps</i>Barbacoas</a></li>
                     <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">group</i>Usuarios<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
@@ -153,10 +156,9 @@
     <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.js') }}" defer></script>
     <script src="{{ asset('assets/js/alpha.min.js') }}" defer></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/jquery.daterangepicker.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}" defer></script>
-
     {{-- extras scripts --}}
     @yield('js')
 

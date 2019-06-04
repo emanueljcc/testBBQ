@@ -9,7 +9,9 @@
                 <div class="col s12 m8 l7 offset-l2 offset-m2">
                     <div class="card white darken-1">
                         <div class="card-content" style="padding: 13px;">
-                            <span class="card-title">{{ __('Login') }}</span>
+                            <span class="card-title center">
+                                    <img src="{{asset('img/barbacoa.png')}}" alt="avatar" style="width:20em;margin-top: 1px;">
+                            </span>
                             <div class="row">
                                 {{-- init form --}}
                                 <form method="POST" class="col s12" action="{{ route('login') }}">

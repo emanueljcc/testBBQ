@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use App\User;
+use App\Booking;
 
 
 class HomeController extends Controller
@@ -26,9 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $companies = Company::all();
+        $bookings = Booking::join('users', 'users.id', '=', 'bookings.user_id')
+                           ->join('company', 'company.id', '=', 'bookings.company_id')
+                           ->select('users.name', 'company.model', 'bookings.date_start', 'bookings.date_end')
+                           ->get();
 
-        return view('home', ['companies' => $companies, 'users'=>$users]);
+        return view('home', ['bookings'=>$bookings]);
     }
 }

@@ -139,3 +139,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
+span.thumb.active{
+    display: none;
+}

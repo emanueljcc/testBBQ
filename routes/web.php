@@ -24,3 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('companies','CompanyController');
 
 Route::get('/booking', 'CompanyController@bookingBBQ')->name('booking');
+Route::post('/bookingStore', 'CompanyController@bookingStore')->name('bookingStore');
