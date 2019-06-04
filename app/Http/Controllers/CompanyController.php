@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\User;
 use Illuminate\Http\Request;
 use Image;
 
@@ -45,29 +46,31 @@ class CompanyController extends Controller
             'zipCode' => 'required'
         ]);
 
-        // ruta de las imagenes guardadas
-        $ruta = public_path().'/img/';
+        if($request->hasFile('photo')){
 
-        // recogida del form
-        $imagenOriginal = $request->file('photo');
+            // ruta de las imagenes guardadas
+            $ruta = public_path().'/img/';
+            // recogida del form
+            $imagenOriginal = $request->file('photo');
+            // crear instancia de imagen
+            $imagen = Image::make($imagenOriginal);
+            // generar un nombre aleatorio para la imagen
+            $temp_name = $this->random_string() . '.' . $imagenOriginal->getClientOriginalExtension();
+            $imagen->resize(300,300);
+            // guardar imagen
+            // save( [ruta], [calidad])
+            $imagen->save($ruta . $temp_name, 100);
+            $companies->photo = $temp_name;
 
-        // crear instancia de imagen
-        $imagen = Image::make($imagenOriginal);
+        }else{
+            $companies->photo = null;
+        }
 
-        // generar un nombre aleatorio para la imagen
-        $temp_name = $this->random_string() . '.' . $imagenOriginal->getClientOriginalExtension();
-
-        $imagen->resize(300,300);
-
-        // guardar imagen
-        // save( [ruta], [calidad])
-        $imagen->save($ruta . $temp_name, 100);
 
         $companies = new Company;
         $companies->model = $request->model;
         $companies->description = $request->description;
         $companies->zipCode = $request->zipCode;
-        $companies->photo = $temp_name;
         $companies->save();
 
         return redirect()->route('companies.index')
@@ -159,5 +162,12 @@ class CompanyController extends Controller
         }
 
         return $key;
+    }
+
+
+    public function bookingBBQ(){
+        $users = User::pluck('name', 'id');
+        $companies = Company::pluck('model', 'id');
+        return view('companies.booking', ['users'=>$users, 'companies'=>$companies]);
     }
 }

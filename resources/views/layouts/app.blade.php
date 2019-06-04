@@ -117,6 +117,7 @@
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('home') }}"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
                     <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('companies.index') }}"><i class="material-icons">apps</i>Barbacoas</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" href="{{ route('booking') }}"><i class="material-icons">query_builder</i>Alquilar Barbacoa</a></li>
                     <li class="no-padding">
                         <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">group</i>Usuarios<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                         <div class="collapsible-body">
@@ -152,6 +153,12 @@
     <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.js') }}" defer></script>
     <script src="{{ asset('assets/js/alpha.min.js') }}" defer></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
     <script src="{{ asset('assets/js/custom.js') }}" defer></script>
+
+    {{-- extras scripts --}}
+    @yield('js')
+
 </body>
 </html>

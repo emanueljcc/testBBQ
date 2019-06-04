@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // module company -> barbacoas
 Route::resource('companies','CompanyController');
+
+Route::get('/booking', 'CompanyController@bookingBBQ')->name('booking');
