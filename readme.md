@@ -44,14 +44,15 @@ Use Leaflet.js para los mapas ya que es opensources junto con openstreetmap ya q
 
 ### Vistas previas de la aplicacion
 
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.46.55.png
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.47.11.png
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.47.37.png
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.47.56.png
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.48.22.png
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.48.56.png
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.49.06.png
-https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.49.34.png
+https://ibb.co/gZvN2r7 <br>
+https://ibb.co/ZdBHjK7 <br>
+https://ibb.co/LQ5rf8C <br>
+https://ibb.co/wcP5pPh <br>
+https://ibb.co/Vq6PWch <br>
+https://ibb.co/m9HL771 <br>
+https://ibb.co/C7QprQN <br>
+https://ibb.co/WD6k5S2 <br>
+https://ibb.co/HBx4pM1 <br>
 
 License
 ----
