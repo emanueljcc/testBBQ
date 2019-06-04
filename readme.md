@@ -21,7 +21,7 @@ Framework y librerias usadas en el test:
 
 Clonar Proyecto
 ```
-$ git clone
+$ git clone https://github.com/emanueljcc/testBBQ.git
 ```
 Instalar dependencias.
 
@@ -44,16 +44,14 @@ Use Leaflet.js para los mapas ya que es opensources junto con openstreetmap ya q
 
 ### Vistas previas de la aplicacion
 
-
-https://ibb.co/gZvN2r7
-https://ibb.co/ZdBHjK7
-https://ibb.co/LQ5rf8C
-https://ibb.co/wcP5pPh
-https://ibb.co/Vq6PWch
-https://ibb.co/m9HL771
-https://ibb.co/C7QprQN
-https://ibb.co/WD6k5S2
-https://ibb.co/HBx4pM1
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.46.55.png
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.47.11.png
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.47.37.png
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.47.56.png
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.48.22.png
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.48.56.png
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.49.06.png
+https://raw.githubusercontent.com/emanueljcc/testBBQ/master/preview/Captura realizada el 2019-06-04 04.49.34.png
 
 License
 ----
