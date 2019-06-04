@@ -16,9 +16,9 @@
                                     @csrf
                                     <div class="input-field col s12">
 
-                                        <div class="col-md-6">
+                                        <div class="col m6">
                                             <input id="name" type="text" class="validate form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                            <label for="name">{{ __('Name') }}</label>
+                                            <label for="name">{{ __('Nombre') }}</label>
 
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
 
                                     <div class="input-field col s12">
 
-                                        <div class="col-md-6">
+                                        <div class="col m6">
                                             <input id="email" type="email" class="validate form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                             <label for="email">{{ __('E-Mail') }}</label>
 
@@ -44,9 +44,9 @@
 
                                     <div class="input-field col s12">
 
-                                        <div class="col-md-6">
+                                        <div class="col m6">
                                             <input id="password" type="password" class="validate form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                            <label for="password">{{ __('Password') }}</label>
+                                            <label for="password">{{ __('Contraseña') }}</label>
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -57,17 +57,17 @@
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <div class="col-md-6">
+                                        <div class="col m6">
                                             <input id="password-confirm" type="password" class="validate form-control" name="password_confirmation" required autocomplete="new-password">
-                                            <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                                            <label for="password-confirm">{{ __('Confirmar contraseña') }}</label>
                                         </div>
                                     </div>
                                     {{-- section button --}}
                                     <div class="col s12 right-align m-t-sm">
-                                        <div class="col-md-6 left">
+                                        <div class="col m6 left">
                                             <a class="waves-effect waves-grey btn-flat" href="{{ route('login') }}">{{ __('Atras') }}</a>
                                         </div>
-                                        <div class="col-md-6 right">
+                                        <div class="col m6 right">
                                             <button type="submit" class="waves-effect waves-light btn teal">
                                                 {{ __('Registrar') }}
                                             </button>

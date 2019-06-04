@@ -19,6 +19,9 @@ class CreateBookingsTable extends Migration
             $table->string('company_id')->nullable();
             $table->dateTime('date_start')->nullable();
             $table->dateTime('date_end')->nullable();
+            $table->string('direction', 100)->nullable();
+            $table->string('lat',30)->nullable();
+            $table->string('lon',30)->nullable();
             $table->timestamps();
          });
     }

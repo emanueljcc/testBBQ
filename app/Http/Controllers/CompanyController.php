@@ -20,7 +20,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::all();
+        $companies = Company::all()->sortByDesc('created_at');
 
         return view('companies.index',compact('companies'))
             ->with('i');
@@ -47,8 +47,13 @@ class CompanyController extends Controller
         $request->validate([
             'model' => 'required',
             'description' => 'required',
-            'zipCode' => 'required'
+            'zipCode' => 'required',
+            'direction' => 'required',
+            'lat' => 'required',
+            'lon' => 'required'
         ]);
+
+        $companies = new Company;
 
         if($request->hasFile('photo')){
 
@@ -65,31 +70,19 @@ class CompanyController extends Controller
             // save( [ruta], [calidad])
             $imagen->save($ruta . $temp_name, 100);
             $companies->photo = $temp_name;
-
-        }else{
+        } else
             $companies->photo = null;
-        }
 
-
-        $companies = new Company;
         $companies->model = $request->model;
         $companies->description = $request->description;
         $companies->zipCode = $request->zipCode;
+        $companies->direction = $request->direction;
+        $companies->lat = $request->lat;
+        $companies->lon = $request->lon;
         $companies->save();
 
         return redirect()->route('companies.index')
                         ->with('success','Barbacoa creada exitosamente.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Company  $company
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Company $company)
-    {
-        return view('companies.show',compact('company'));
     }
 
     /**
@@ -115,7 +108,10 @@ class CompanyController extends Controller
         $request->validate([
             'model' => 'required',
             'description' => 'required',
-            'zipCode' => 'required'
+            'zipCode' => 'required',
+            'direction' => 'required',
+            'lat' => 'required',
+            'lon' => 'required'
         ]);
 
         $companies = Company::findOrFail($company->id);
@@ -135,6 +131,9 @@ class CompanyController extends Controller
         $companies->model = $request->model;
         $companies->description = $request->description;
         $companies->zipCode = $request->zipCode;
+        $companies->direction = $request->direction;
+        $companies->lat = $request->lat;
+        $companies->lon = $request->lon;
         $companies->update();
 
         return redirect()->route('companies.index')
@@ -172,7 +171,21 @@ class CompanyController extends Controller
     public function bookingBBQ(){
         $users = User::pluck('name', 'id');
         $companies = Company::pluck('model', 'id');
-        return view('companies.booking', ['users'=>$users, 'companies'=>$companies]);
+
+        $arrCoords = [];
+        $coords = Company::all();
+        foreach ($coords as $key => $value) {
+            $collection = collect([
+
+                'id' => $value->id,
+                'model' => $value->model,
+                'lat' => $value->lat,
+                'lon' => $value->lon
+            ]);
+
+            array_push($arrCoords, $collection);
+        }
+        return view('companies.booking', ['users'=>$users, 'companies'=>$companies, 'arrCoords'=>$arrCoords]);
     }
 
 
@@ -212,11 +225,6 @@ class CompanyController extends Controller
         }
         else
             return redirect()->back()->withInput()->with('error', "No puede guardar porque ya el local fue alquilado en la fecha escogida.");
-
-
-
-
-
 
     }
 

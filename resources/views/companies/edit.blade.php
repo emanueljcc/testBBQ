@@ -2,9 +2,9 @@
 
 @section('content')
 
-
-
-
+<link rel="stylesheet" href="{{url('/')}}/css/leaflet.css" />
+<link rel="stylesheet" href="{{url('/')}}/css/leaflet-search.css" />
+<link rel="stylesheet" href="{{url('/')}}/css/styleMap.css" />
 
 <main class="mn-inner">
     <div class="row">
@@ -21,8 +21,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <div class="row no-m-t no-m-b">
             <div class="col s12 m12 l12">
@@ -71,6 +69,35 @@
                                     <label for="zipCode">{{ __('ZIP Code') }}</label>
                                 </div>
 
+                                <div class="input-field col s12">
+                                    <input id="direction" type="text" class="validate form-control" name="direction" value="{{ $company->direction }}" readonly required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col m12 s12 l12">
+                                        <div id="findbox"></div>
+                                    </div>
+                                </div>
+
+                                <center>
+                                    <div id="map"></div>
+                                </center>
+
+                                <div class="input-field col s6">
+                                    <input id="lat" type="text" class="validate form-control" name="lat" value="{{ $company->lat }}" readonly required>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input id="lon" type="text" class="validate form-control" name="lon" value="{{ $company->lon }}" readonly required>
+                                </div>
+
+                                <div id="msg"><span>Por favor ingresar longitud</span></div>
+                                @if (isset($company))
+                                    <input type="hidden" value="{{ $company->direction }}" id="directionOther">
+                                    <input type="hidden" value="{{ $company->lat }}" id="latEdit">
+                                    <input type="hidden" value="{{ $company->lon }}" id="lonEdit">
+                                @endif
+
                                 <div class="col s12 m12 text-center">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
@@ -83,5 +110,17 @@
         </div>
     </div>
 </main>
+
+@section('js')
+
+    <script src="{{url('/')}}/js/leaflet.js"></script>
+    <script src="{{url('/')}}/js/spin.min.js"></script>
+    <script src="{{url('/')}}/js/leaflet.spin.min.js"></script>
+    <script src="{{url('/')}}/js/esri-leaflet.js"></script>
+    <script src="{{url('/')}}/js/esri-leaflet-geocoder.js"></script>
+    <script src="{{url('/')}}/js/leaflet-search.js"></script>
+    <script src="{{url('/')}}/js/locationMap.js"></script>
+
+@endsection
 
 @endsection

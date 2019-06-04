@@ -19,7 +19,7 @@
 
                                     <div class="input-field col s12">
 
-                                        <div class="col-md-6">
+                                        <div class="col m6">
                                             <input id="email" type="email" class="validate" id="email" type="email" class="validate form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                             <label for="email">{{ __('E-Mail') }}</label>
 
@@ -33,7 +33,7 @@
 
                                     <div class="input-field col s12">
 
-                                        <div class="col-md-6">
+                                        <div class="col m6">
                                             <input id="password" type="password" class="validate form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                             <label for="password">{{ __('Contraseña') }}</label>
 

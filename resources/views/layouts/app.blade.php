@@ -18,7 +18,6 @@
     <link href="{{ asset('assets/css/alpha.min.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/daterangepicker.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 
 </head>
@@ -82,12 +81,9 @@
                         <span class="chapter-title">BBQ</span>
                     </div>
 
-
-                    <div class="col s6 center">
+                    <div class="col s6 center fadeIn animated">
                         <img src="{{asset('img/barbacoa.png')}}" alt="avatar" style="width:9.5em;margin-top: 1px;">
                     </div>
-
-
                 </div>
             </nav>
         </header>
@@ -98,7 +94,7 @@
             <div class="side-nav-wrapper">
                 <div class="sidebar-profile">
                     <div class="sidebar-profile-image">
-                        <img src="{{asset('assets/images/profile-image.png')}}" class="circle" alt="avatar">
+                        <img src="{{asset('assets/images/profile-image-2.png')}}" class="circle" alt="avatar">
                     </div>
                     <div class="sidebar-profile-info">
                         <a href="javascript:void(0);" class="account-settings-link">

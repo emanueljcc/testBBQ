@@ -28,6 +28,10 @@
                         <span class="card-title">Alquilar Barbacoa</span>
                         <form action="{{ route('bookingStore') }}" method="POST">
                             @csrf
+
+                            <center><span>Solo se está mostrando las barbacoas que estan a 10 KM de la posicion actual de este dispositivo.</span></center>
+                            <br><br>
+
                             <div class="row">
 
                                 <div class="input-field col s4">
@@ -36,8 +40,10 @@
                                 </div>
 
                                 <div class="input-field col s4">
-                                    {!!Form::select('company_id', $companies, null, ['id'=>'company_id','placeholder' => 'Elija una opcion', 'class' => 'validate form-control','required'=>'required'])!!}
+                                    {{-- {!!Form::select('company_id', $companies, null, ['id'=>'company_id','placeholder' => 'Elija una opcion', 'class' => 'validate form-control','required'=>'required'])!!} --}}
+                                    <select name="company_id" id="company_id" placeholder="Elija una opcion" class="validate form-control" required></select>
                                     <label for="company_id">{{ __('Barbacoa') }}</label>
+
                                 </div>
 
                                 <div class="input-field col s4">
@@ -60,6 +66,7 @@
 @section('js')
 
 <script>
+
     // range datetime picker
     $('#date').dateRangePicker(
         {
@@ -71,7 +78,54 @@
         time: {
             enabled: true
         }
+    });
+
+
+    // obtener posiciones en KM
+    getKM = function(lat1, lon1, lat2, lon2)
+    {
+        rad = function(x) {return x*Math.PI/180;}
+        let R = 6378.137, //Radio de la tierra en km
+            dLat = rad( lat2 - lat1 ),
+            dLong = rad( lon2 - lon1 ),
+            a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLong/2) * Math.sin(dLong/2),
+            c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)),
+            d = R * c;
+        return d.toFixed(3); //Retorna tres decimales
+    }
+
+
+    // obtener la posicion del usuario dispositivo
+    navigator.geolocation.getCurrentPosition(function(pos) {
+        let lat = pos.coords.latitude,
+            lon = pos.coords.longitude,
+            A = JSON.parse('{!! json_encode($arrCoords) !!}'),
+            B = [];
+
+
+
+        for(let i in A){
+            if(parseInt(getKM(lat, lon, A[i].lat, A[i].lon)) <= 10)
+                B.push(A[i]);
+        }
+
+        console.log("array de BBQ disponibles ", B)
+        //insertando las barbacoas dispobles en el rango de 10km al select
+        for(let x in B){
+            $('#company_id').append($('<option>',
+                {
+                    value: B[x].id,
+                    text : B[x].model
+                }
+            ));
+            $('#company_id').material_select();
+        }
+
     })
+
+
+
+
 </script>
 
 @endsection
