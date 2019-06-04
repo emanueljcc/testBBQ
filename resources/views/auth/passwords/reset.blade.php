@@ -18,7 +18,7 @@
                                     <input type="hidden" name="token" value="{{ $token }}">
 
                                     <div class="input-field col s12">
-                                        <div class="col m6">
+                                        <div class="col-md-6">
                                             <input id="email" type="email" class="validate form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
                                             <label for="email">{{ __('E-Mail') }}</label>
 
@@ -31,7 +31,7 @@
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <div class="col m6">
+                                        <div class="col-md-6">
                                             <input id="password" type="password" class="validate form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                             <label for="password">{{ __('Contraseña') }}</label>
 
@@ -44,17 +44,17 @@
                                     </div>
 
                                     <div class="input-field col s12">
-                                        <div class="col m6">
+                                        <div class="col-md-6">
                                             <input id="password-confirm" type="password" class="validate form-control" name="password_confirmation" required autocomplete="new-password">
                                             <label for="password-confirm">{{ __('Confirmar Contraseña') }}</label>
                                         </div>
                                     </div>
 
                                     <div class="col s12 right-align m-t-sm">
-                                        <div class="col m6 s12 left">
+                                        <div class="col-md-6 col-sm-12 left">
                                             <a class="waves-effect waves-grey btn-flat" href="{{ route('login') }}">{{ __('Atras') }}</a>
                                         </div>
-                                        <div class="col m6 s12 right">
+                                        <div class="col-md-6 col-sm-12 right">
                                             <button type="submit" class="waves-effect waves-light btn teal">
                                                 {{ __('Resetear Contraseña') }}
                                             </button>

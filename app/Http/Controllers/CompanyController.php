@@ -176,7 +176,6 @@ class CompanyController extends Controller
         $coords = Company::all();
         foreach ($coords as $key => $value) {
             $collection = collect([
-
                 'id' => $value->id,
                 'model' => $value->model,
                 'lat' => $value->lat,
@@ -201,16 +200,7 @@ class CompanyController extends Controller
         $dates = explode("~", $request->date);
 
         // buscar en BD si existe ya un registro
-        $existsBooking = DB::table('bookings')
-        ->where([
-            ['user_id', '=', $request->user_id],
-            ['company_id', '=', $request->company_id],
-            ['date_start', '>=', Carbon::parse($dates[0])],
-            ['date_end', '<=', Carbon::parse($dates[1])]
-        ])
-        ->whereBetween('date_start', [Carbon::parse($dates[0]), Carbon::parse($dates[1])])
-        ->whereBetween('date_end', [Carbon::parse($dates[0]), Carbon::parse($dates[1])])
-        ->pluck('id');
+        $existsBooking = $this->returnExistsBBQ($request, $dates);
 
         if(count($existsBooking) === 0) {
             $companies = new Booking;
@@ -225,7 +215,23 @@ class CompanyController extends Controller
         }
         else
             return redirect()->back()->withInput()->with('error', "No puede guardar porque ya el local fue alquilado en la fecha escogida.");
+    }
 
+
+    // funcion buscar en BD si existe ya un registro
+    protected function returnExistsBBQ($request, $dates){
+        $existsBooking = DB::table('bookings')
+        ->where([
+            ['user_id', '=', $request->user_id],
+            ['company_id', '=', $request->company_id],
+            ['date_start', '>=', Carbon::parse($dates[0])],
+            ['date_end', '<=', Carbon::parse($dates[1])]
+        ])
+        ->whereBetween('date_start', [Carbon::parse($dates[0]), Carbon::parse($dates[1])])
+        ->whereBetween('date_end', [Carbon::parse($dates[0]), Carbon::parse($dates[1])])
+        ->pluck('id');
+
+        return $existsBooking;
     }
 
 }

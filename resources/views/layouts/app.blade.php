@@ -16,7 +16,7 @@
 
     <!-- Theme Styles -->
     <link href="{{ asset('assets/css/alpha.min.css') }}" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/daterangepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 
@@ -67,7 +67,6 @@
     </div>
     {{-- PRE LOADER --}}
 
-
     <div class="mn-content fixed-sidebar">
         <header class="mn-header navbar-fixed">
             <nav class="cyan darken-1">
@@ -87,7 +86,6 @@
                 </div>
             </nav>
         </header>
-
 
         {{-- MENU --}}
         <aside id="slide-out" class="side-nav white fixed">
@@ -131,30 +129,24 @@
         </aside>
         {{-- MENU --}}
 
-
         {{-- CONTENT --}}
         @yield('content')
         {{-- CONTENT --}}
-
-
 
     </div>
     <div class="left-sidebar-hover"></div>
 
     <!-- Javascripts -->
-    {{-- <script src="assets/plugins/jquery/jquery-2.2.0.min.js"></script> --}}
-    <script
-    src="https://code.jquery.com/jquery-2.2.4.min.js"
-    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-    crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/plugins/materialize/js/materialize.min.js') }}" defer></script>
-    <script src="{{ asset('assets/plugins/material-preloader/js/materialPreloader.min.js') }}" defer></script>
-    <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.js') }}" defer></script>
-    <script src="{{ asset('assets/js/alpha.min.js') }}" defer></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/materialize/js/materialize.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/material-preloader/js/materialPreloader.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.js') }}"></script>
+    <script src="{{ asset('assets/js/alpha.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.daterangepicker.min.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}" defer></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
     {{-- extras scripts --}}
     @yield('js')
 

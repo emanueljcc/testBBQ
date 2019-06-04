@@ -74,6 +74,7 @@
                                 </div>
 
                                 <center>
+                                    <span>Click en el mapa para buscar coordenadas</span>
                                     <div id="map"></div>
                                 </center>
 

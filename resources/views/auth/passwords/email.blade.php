@@ -23,7 +23,7 @@
 
                                     <div class="input-field col s12"">
 
-                                        <div class="col m6">
+                                        <div class="col-md-6">
                                             <input id="email" type="email" class="validate form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                             <label for="email">{{ __('E-Mail') }}</label>
 
